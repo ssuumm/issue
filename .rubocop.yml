@@ -1,0 +1,153 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'spec/spec_helper.rb'
+
+Rails:
+  Enabled: true
+
+Metrics/AbcSize:
+  Exclude:
+    - 'spec/**/*_spec.rb'
+
+Metrics/BlockLength:
+  Max: 50
+  Exclude:
+    - 'spec/**/*_spec.rb'
+
+# Offense count: 1
+# Configuration parameters: CountComments.
+Metrics/ClassLength:
+  Max: 200
+  Exclude:
+    - 'spec/**/*_spec.rb'
+
+Metrics/LineLength:
+  Max: 200
+  Exclude:
+    - 'spec/**/*_spec.rb'
+
+Style/LambdaCall:
+  EnforcedStyle: braces
+
+Style/SymbolArray:
+  Enabled: false
+
+# we don't write document on code
+Style/Documentation:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+Style/TrailingCommaInArguments:
+  Enabled: false
+
+# sometimes good for readability
+Layout/ExtraSpacing:
+  Enabled: false
+
+# disable for possible code readability increase
+Style/RedundantParentheses:
+  Enabled: false
+
+# parenthesis indentation is weird
+Layout/ClosingParenthesisIndentation:
+  Enabled: false
+
+# for readability
+Style/RedundantSelf:
+  Enabled: false
+
+# we don't want frozen_string_literal: true on top of all files
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/MethodLength:
+  CountComments: false  # count full line comments?
+  Max: 50
+
+PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%':  '{}'
+    '%i': '{}'
+    '%q': '{}'
+    '%Q': '{}'
+    '%r': '{}'
+    '%s': '{}'
+    '%w': '{}'
+    '%W': '{}'
+    '%x': '{}'
+
+# 日本語コメントを許可
+AsciiComments:
+  Enabled: false
+
+# 数値の桁数を15桁まで許可
+NumericLiterals:
+  MinDigits: 15
+
+ParameterLists:
+  Max: 6
+  CountKeywordArgs: false
+
+
+# reduce,injectのブロック引数の名前はなんでもいいので、disable
+SingleLineBlockParams:
+  Enabled: false
+
+# allow `if 10 == variable` instead of limiting to `if variable == 10` for possible readability increase
+Style/YodaCondition:
+  Enabled: false
+
+# allow variable names like `var_1_2` so far, which are heavily used in specs
+Style/VariableNumber:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+# we sometimes skip validation for preparing test data
+Rails/SkipsModelValidations:
+  Exclude:
+    - spec/**/*
+
+# for less indentation
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/FormatStringToken:
+  EnforcedStyle: template
+
+# take readability over potential performance improvement in specs
+Rails/UniqBeforePluck:
+  Exclude:
+    - spec/**/*
+
+Style/MultilineTernaryOperator:
+  Enabled: false
+
+Style/CaseIndentation:
+  IndentOneStep: true
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
